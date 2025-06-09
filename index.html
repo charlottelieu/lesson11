@@ -29,14 +29,26 @@
                  referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
                  </iframe>
              </div>
-               <div class="widget"><h3>Widget 3</h3></div>
+               <div class="widget"><h3>Widget 3</h3>
+               
+               </div>
         </div>
         
     </div>
 </body>
 
 <script>
-
+    try {
+ var loadNotes = localStorage.getItem("notes");
+}
+catch(err) {
+ var loadNotes = "Enter your notes here and click 'Save'";
+}
+$("#note-area").val(loadNotes);
+$("#saveNoteBtn").click(function(){
+ var currentNotes = $("#note-area").val();
+ localStorage.setItem("notes", currentNotes);
+});
 </script>
 </html>
 
